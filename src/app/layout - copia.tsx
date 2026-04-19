@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Chronos Heritage | Relojes Vintage Atemporales",
-  description: "Descubre una colección curada de relojes vintage exquisitos. Restaurados a la perfección.",
+  title: "Chronos Heritage | Timeless Vintage Timepieces",
+  description: "Discover a curated collection of exquisite vintage watches. Restored to perfection.",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="en">
       <body>
         {children}
       </body>

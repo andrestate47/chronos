@@ -1,42 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #020402; /* Even darker for premium feel */
+  --foreground: #f0eee2;
+  --accent: #d4af37;
+  --accent-light: #f3cf55;
+  --accent-dark: #b8860b;
+  --secondary: #0f1a0f;
+  --muted: #a1a194;
+  --border: rgba(212, 175, 55, 0.15);
+  --card-bg: rgba(15, 26, 15, 0.4);
+  --glass-bg: rgba(2, 4, 2, 0.8);
+  
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Lato', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
 }
+
+h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); letter-spacing: -1px; }
+h2 { font-size: clamp(2rem, 5vw, 3rem); }
+h3 { font-size: 1.8rem; }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border: 4px solid var(--background);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Utilities */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section {
+  padding: clamp(80px, 10vw, 150px) 0;
+}
+
+.text-accent { color: var(--accent); }
+.text-center { textAlign: center; }
+
+/* Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn:hover {
+  color: var(--background);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary {
+  border-color: var(--muted);
+  color: var(--muted);
+}
+.btn-secondary:hover::before {
+  background: var(--muted);
+}
+.btn-secondary:hover {
+  box-shadow: 0 0 20px rgba(161, 161, 148, 0.2);
+}
+
+/* Navbar Scrolled State */
+.nav-scrolled {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  padding: 1rem 0 !important;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Grid */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+/* Grain Texture */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  filter: contrast(150%) brightness(100%);
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .grid-3 { grid-template-columns: 1fr; }
+  * { cursor: auto !important; } /* Disable custom cursor on mobile */
+}
+
+/* Hide cursor on desktop for custom one */
+@media (min-width: 769px) {
+  body, a, button {
+    cursor: none !important;
   }
 }
