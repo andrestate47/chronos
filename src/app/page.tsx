@@ -87,7 +87,7 @@ export default function Home() {
                 Excelencia desde 1924
               </motion.h2>
               <h1 style={{ marginBottom: '2rem', lineHeight: '1.1' }}>
-                El Arte de la <br /> <span style={{ color: 'white', WebkitTextStroke: '1px var(--accent)', color: 'transparent' }}>Precisión</span>
+                El Arte de la <br /> <span style={{ WebkitTextStroke: '1px var(--accent)', color: 'transparent' }}>Precisión</span>
               </h1>
               <p style={{ fontSize: '1.2rem', color: '#bbb', marginBottom: '3rem', maxWidth: '600px', borderLeft: '3px solid var(--accent)', paddingLeft: '2rem' }}>
                 Curaduría de las piezas más excepcionales del mundo. 
