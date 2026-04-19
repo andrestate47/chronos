@@ -210,7 +210,7 @@ export default function Home() {
                 style={{ textAlign: 'center' }}
               >
                 <Quote size={40} color="var(--accent)" style={{ opacity: 0.3, marginBottom: '1.5rem', margin: '0 auto' }} />
-                <p style={{ fontStyle: 'italic', marginBottom: '2rem', fontSize: '1.1rem' }}>"{t.text}"</p>
+                <p style={{ fontStyle: 'italic', marginBottom: '2rem', fontSize: '1.1rem' }}>&quot;{t.text}&quot;</p>
                 <h5 style={{ color: 'white', marginBottom: '0.2rem' }}>{t.name}</h5>
                 <p style={{ color: 'var(--accent)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '2px' }}>{t.role}</p>
               </motion.div>
@@ -260,7 +260,7 @@ export default function Home() {
                 <Image src="/watch-silver.png" alt="Herencia Suiza" fill style={{ objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', bottom: '-20px', left: '-20px', backgroundColor: 'var(--accent)', color: 'var(--background)', padding: '30px', borderRadius: '2px', maxWidth: '250px' }}>
                   <p style={{ fontWeight: 700, margin: 0, fontFamily: 'var(--font-heading)', fontSize: '0.85rem' }}>
-                    "Un reloj es la única pieza de joyería que un hombre debería necesitar."
+                    &quot;Un reloj es la única pieza de joyería que un hombre debería necesitar.&quot;
                   </p>
                 </div>
               </div>
