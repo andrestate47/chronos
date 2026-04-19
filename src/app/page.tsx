@@ -10,18 +10,15 @@ import CustomCursor from "@/components/CustomCursor";
 import Preloader from "@/components/Preloader";
 import { Shield, Award, Sparkles, MapPin, ArrowRight, Quote, Globe, Mail, MessageSquare } from "lucide-react";
 
-if (typeof window !== 'undefined') {
-  if ('scrollRestoration' in window.history) {
-    window.history.scrollRestoration = 'manual';
-  }
-}
-
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
 
-  // Asegurar scroll al inicio al montar
   useEffect(() => {
+    // Configurar restauración de scroll y mover al inicio
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
     window.scrollTo(0, 0);
   }, []);
 
